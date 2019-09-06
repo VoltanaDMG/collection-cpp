@@ -1,0 +1,2 @@
+# For MingW-w64 v8.1.0 (Windows 10 64bit / Windows Server 2012R2 64bit)
+g++.exe --std=c++17 -Wall -Wextra example_prog.cpp -Ipath\to\boost_1_70_0\include -Ipath\to\storageapi\include -o target/StorageTest libboost_thread-mgw81-mt-x64-1_70.a libwinpthread.dll.a
