@@ -7,4 +7,7 @@
 #define _STORAGEAPI_MAIN_H_
 #include "StorageManager.hpp"   // <-- StorageManager
 #include "StorageItem.hpp"      // <-- StorageItem
+namespace Storage {
+
+};
 #endif
