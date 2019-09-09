@@ -1,10 +1,10 @@
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Finanz Informatik. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *  Licensed under the Apache-2.0 License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 // StorageManager.hpp - Header Definition incl. Initialization
-#ifndef _STORAGEMANAGER_H_
-#define _STORAGEMANAGER_H_
+#ifndef _STORAGEAPI_STORAGEMANAGER_H_
+#define _STORAGEAPI_STORAGEMANAGER_H_
 #include "StorageCache.hpp"
 #include "StorageItem.hpp"
 

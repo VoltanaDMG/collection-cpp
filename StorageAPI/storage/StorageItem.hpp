@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Finanz Informatik. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *  Licensed under the Apache-2.0 License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 // StorageItem.hpp - Header Definition incl. Initialization
 #ifndef _STORAGEAPI_STORAGEITEM_H_

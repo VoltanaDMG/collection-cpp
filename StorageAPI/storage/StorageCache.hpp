@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Finanz Informatik. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *  Licensed under the Apache-2.0 License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 // StorageCache.hpp - Header Definition incl. Initialization
 #ifndef _STORAGEAPI_STORAGECACHE_H_
@@ -38,11 +38,22 @@
  * MinGW-w64 32bit     __MINGW32__
  * MinGW-w64 64bit     __MINGW64__
  */
-#ifdef __MINGW32__ || __MINGW64__
-#include <pthread_time.h>
-#endif
-#ifdef __GNUC__ && (__linux__ && !__ANDROID__)
-#include <time.h>
+#if defined(__MINGW32__ || __MINGW64__)
+    #include <pthread_time.h>
+#elif defined(__GNUC__ && (__linux__ && !__ANDROID__))
+    #include <time.h>
+#elif defined(_MSC_VER && _WIN64)
+    #include <windows.h>
+    struct timespec { long tv_sec; long tv_nsec; };
+    int clock_gettime(int, struct timespec *spec) {
+        __int64 wintime; GetSystemTimeAsFileTime((FILETIME*)&wintime);
+        wintime      -=116444736000000000i64;  //1jan1601 to 1jan1970
+        spec->tv_sec  =wintime / 10000000i64;           //seconds
+        spec->tv_nsec =wintime % 10000000i64 *100;      //nano-seconds
+        return 0;
+    }
+#else
+    #include <time.h>
 #endif
 
 /// [Definitions]
