@@ -85,12 +85,6 @@ namespace Storage {
 
     template <class Key, class T>
     class StorageCache {
-        ///Variables
-        boost::hash<Key>hash;
-        std::vector<shared_ptr<Shard<T> > > shards;
-        shared_ptr<boost::thread>curator;
-        shared_ptr<boost::detail::atomic_count>curator_run;
-
         /**
          * CacheItem
          * A wrapper class for cache values
@@ -144,6 +138,12 @@ namespace Storage {
             shared_ptr<mutex> guard;
             std::map<Key,shared_ptr<CacheItem<T> > > map;
         };
+
+        ///Variables
+        boost::hash<Key> hash;
+        std::vector<shared_ptr<Shard<T>>> shards;
+        shared_ptr<boost::thread> curator;
+        shared_ptr<boost::detail::atomic_count> curator_run;
 
         public:
             StorageCache(){
@@ -346,7 +346,7 @@ namespace Storage {
              * @param id 
              */
             size_t calc_index(Key id){
-                printf("[Debug] Hash : %llu\n", (size_t)this->hash(id));
+                //printf("[Debug] Hash : %llu\n", (size_t)this->hash(id));
                 return (size_t) this->hash(id) % FASTCACHE_SHARDSIZE;
             };
     };

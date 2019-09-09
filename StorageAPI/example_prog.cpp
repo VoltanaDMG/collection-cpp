@@ -5,9 +5,9 @@
 // example_prog.cpp - Clazz Initialization
 #include <algorithm>
 /// [StorageAPI]
-#include "storage/Storage.hpp"
+//#include "storage/Storage.hpp"
 // Use normally
-//#include <storage/Storage.hpp>
+#include <storage/Storage.hpp>
 
 using namespace Storage;
 
